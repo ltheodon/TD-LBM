@@ -33,10 +33,10 @@ if IsWithHeatTransfer
                     case 0
                         
                     case 1
-                        T_a(ixd,iyd) = T_w;
+                        T_a(ixd,ny) = T_w;
                     case 2
-                        T_w = T_a(ixd,iyd) + Deltax_d * q_w / (2*lambda_d);
-                        T_a(ixd,iyd) = T_w;                       
+                        T_w = T_a(nx,ny) + Deltax_d * q_w / (2*lambda_d);
+                        T_a(ixd,ny) = T_w;                       
                 end
             end
         end

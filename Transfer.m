@@ -41,12 +41,12 @@ if IsWithHeatTransfer
                 end
                 switch type
                     case 0
-                        G_a(nx,ny,i) =  Gpost_a(ixd, iyd, id);
+                        G_a(ixd,iyd,i) =  Gpost_a(nx, ny, id);
                     case 1
-                        G_a(nx,ny,id) = - Gpost_a(ixd, iyd, i) + 2*T_w.*W_t(i);
+                        G_a(ixd,iyd,id) = - Gpost_a(nx, ny, i) + 2*T_w.*W_t(i);
                     case 2
-                        T_w = T_a(nx,ny) + Deltax_d * q_w / (2*lambda_d);
-                        G_a(nx,ny,id) = - Gpost_a(ixd, iyd, i) + 2*T_w.*W_t(i);                        
+                        T_w = T_a(ixd,iyd) + Deltax_d * q_w / (2*lambda_d);
+                        G_a(ixd,iyd,id) = - Gpost_a(nx, ny, i) + 2*T_w.*W_t(i);                        
                 end
             end
         end

@@ -13,7 +13,7 @@
 %    'UserDefined1'     : scenario defined by the user
 %    'Debugging'        : scenario to check if code is correct
 
-Scenario = 'SideHeatedCavity';    % WARNING : if 'UserDefined', please change below in this file', 'Postprocessing.m' and 'PlotResults.m'
+Scenario = 'HeatConduction';    % WARNING : if 'UserDefined', please change below in this file', 'Postprocessing.m' and 'PlotResults.m'
 
 %% Definition of the system size (rectangle)
 
@@ -58,7 +58,7 @@ switch Scenario
         RelativeYPosition   = 0.8;            % Reference length is Ly
   
     case 'HeatConduction'  
-        ThermalConditions   = [ 1       1 1 1 1    300     300   302     300       301       0         0           0           0];
+        ThermalConditions   = [ 1       0 1 0 1    300     300   302     300       301       0         0           0           0];
         KinematicConditions = [ 0 0        0       0       0       0       0         0       0 0 0 0   0 0];
         SpaceAndTime        = [ 0.01    0.01    10      10      1300    50  ];  
     
