@@ -13,7 +13,7 @@
 %    'UserDefined1'     : scenario defined by the user
 %    'Debugging'        : scenario to check if code is correct
 
-Scenario = 'HeatConduction';    % WARNING : if 'UserDefined', please change below in this file', 'Postprocessing.m' and 'PlotResults.m'
+Scenario = 'Benard2';    % WARNING : if 'UserDefined', please change below in this file', 'Postprocessing.m' and 'PlotResults.m'
 
 %% Definition of the system size (rectangle)
 
@@ -81,6 +81,11 @@ switch Scenario
         ThermalConditions   = [ 1       1 1 1 1    300     300     295       305       300       0         0           0           0];
         KinematicConditions = [ 0 0        0       0       0       0         0         0         0 0 0 0   0 -9.81];
         SpaceAndTime        = [ 0.005    0.005    35      35      500     100  ];
+        
+    case 'Benard2'  
+        ThermalConditions   = [ 1       0 1 0 1    300    300     298        300       305       0         0           0           0];
+        KinematicConditions = [ 0 0        0       0       0       0         0         0         0 0 0 0   0 -9.81];
+        SpaceAndTime        = [ 0.04    0.02    80      40      10000    50  ];
 
 end
 
@@ -154,6 +159,9 @@ switch Scenario
         %vtypic_d = sqrt(beta_d*gy_d*Ly_d*DeltaT_d);        % Source : Nemati,2010
         vtypic_d = 0.1;
     case 'Benard'
+        %vtypic_d = sqrt(beta_d*gy_d*Ly_d*DeltaT_d);        % Source : Nemati,2010
+        vtypic_d = 0.1;
+    case 'Benard2'
         %vtypic_d = sqrt(beta_d*gy_d*Ly_d*DeltaT_d);        % Source : Nemati,2010
         vtypic_d = 0.1;
     case 'BenardHR'

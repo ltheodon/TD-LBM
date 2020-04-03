@@ -33,6 +33,8 @@ if rem(nt,floor(Nt/NumberOfFrames))==0
             Plots = {'Velocity2D', 'StreamLines', 'Density', 'Temperature3D', 'Temperature2D'};
         case 'Benard'
             Plots = {'Velocity2D', 'StreamLines', 'Density', 'Temperature3D', 'Temperature2D'};
+        case 'Benard2'
+            Plots = {'Velocity2D', 'StreamLines', 'Density', 'Temperature3D', 'Temperature2D'};
         case 'BenardHR'
             Plots = {};         % Special case (see at the end of this file)
         case 'UserDefined1'
