@@ -13,7 +13,7 @@
 %    'UserDefined1'     : scenario defined by the user
 %    'Debugging'        : scenario to check if code is correct
 
-Scenario = 'HeatConduction';    % WARNING : if 'UserDefined', please change below in this file', 'Postprocessing.m' and 'PlotResults.m'
+Scenario = 'Obstacle';    % WARNING : if 'UserDefined', please change below in this file', 'Postprocessing.m' and 'PlotResults.m'
 
 %% Definition of the system size (rectangle)
 
@@ -83,7 +83,7 @@ switch Scenario
         SpaceAndTime        = [ 0.005    0.005    35      35      500     100  ];
         
     case 'Benard2'  
-        ThermalConditions   = [ 1       0 1 0 1    300    300     298        300       305       0         0           0           0];
+        ThermalConditions   = [ 1       0 1 0 1    300    300     290        300       310       0         0           0           0];
         KinematicConditions = [ 0 0        0       0       0       0         0         0         0 0 0 0   0 -9.81];
         SpaceAndTime        = [ 0.04    0.02    80      40      10000    50  ];
 

@@ -47,7 +47,7 @@ if IsWithHeatTransfer
     
     %BodyForce = % to fill in  
     % voir p19 du polycopié
-    BodyForce = (T_a - T_a_0*ones(Nx,Ny))*betaV_a;
+    BodyForce = -(T_a - T_a_0*ones(Nx,Ny))*betaV_a;
 else
     BodyForce = ones(Nx,Ny);
 end
@@ -68,8 +68,8 @@ for i=1:Q
     vx_a(:,:) = vx_a(:,:) + F_a(:,:,i)*ciax(i);
     vy_a(:,:) = vy_a(:,:) + F_a(:,:,i)*ciay(i);
 end
-vx_a  = vx_a./rho_a - gx_a*Tauf_a*BodyForce;      % The second term accounts for body force
-vy_a  = vy_a./rho_a - gy_a*Tauf_a*BodyForce;      % The second term accounts for body force
+vx_a  = vx_a./rho_a + gx_a*Tauf_a*BodyForce;      % The second term accounts for body force
+vy_a  = vy_a./rho_a + gy_a*Tauf_a*BodyForce;      % The second term accounts for body force
 
 CP='M1'; CheckPoints;                             % Check the construction of the moments (especially rho_a)
 
