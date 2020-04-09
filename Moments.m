@@ -8,39 +8,39 @@ if IsWithHeatTransfer
         T_a(:,:) = T_a(:,:) + G_a(:,:,i);
     end
     
-    for nx=1:Nx
-        for ny=1:Ny
-            for i=1:Q_t
-                ixd = nxst(nx, ny, i);
-                iyd = nyst(nx, ny, i);
-                id = i_st(nx, ny, i);
-                type = SourceNodeType(nx, ny, i);
-                switch id
-                	case 2
-                    	T_w = Tleft_a;
-                    	q_w = qinleft;
-                	case 3
-                    	T_w = Tbottom_a;
-                    	q_w = qinbottom;
-                    case 4
-                    	T_w = Tright_a;
-                    	q_w = qinright;
-                	case 1
-                    	T_w = Ttop_a;
-                    	q_w = qintop;
-                end
-                switch type
-                    case 0
-                        
-                    case 1
-                        T_a(ixd,iyd) = T_w;
-                    case 2
-                        T_w = T_a(ixd,iyd) + Deltax_d * q_w / (2*lambda_d);
-                        T_a(ixd,iyd) = T_w;                       
-                end
-            end
-        end
-    end
+%     for nx=1:Nx
+%         for ny=1:Ny
+%             for i=1:Q_t
+%                 ixd = nxst(nx, ny, i);
+%                 iyd = nyst(nx, ny, i);
+%                 id = i_st(nx, ny, i);
+%                 type = SourceNodeType(nx, ny, i);
+%                 switch id
+%                 	case 2
+%                     	T_w = Tleft_a;
+%                     	q_w = qinleft;
+%                 	case 3
+%                     	T_w = Tbottom_a;
+%                     	q_w = qinbottom;
+%                     case 4
+%                     	T_w = Tright_a;
+%                     	q_w = qinright;
+%                 	case 1
+%                     	T_w = Ttop_a;
+%                     	q_w = qintop;
+%                 end
+%                 switch type
+%                     case 0
+%                         
+%                     case 1
+%                         T_a(ixd,iyd) = T_w;
+%                     case 2
+%                         T_w = T_a(ixd,iyd) + Deltax_d * q_w / (2*lambda_d);
+%                         T_a(ixd,iyd) = T_w;                       
+%                 end
+%             end
+%         end
+%     end
     
     
     
@@ -68,8 +68,8 @@ for i=1:Q
     vx_a(:,:) = vx_a(:,:) + F_a(:,:,i)*ciax(i);
     vy_a(:,:) = vy_a(:,:) + F_a(:,:,i)*ciay(i);
 end
-vx_a  = vx_a./rho_a + gx_a*Tauf_a*BodyForce;      % The second term accounts for body force
-vy_a  = vy_a./rho_a + gy_a*Tauf_a*BodyForce;      % The second term accounts for body force
+vx_a  = vx_a./rho_a - gx_a*Tauf_a*BodyForce;      % The second term accounts for body force
+vy_a  = vy_a./rho_a - gy_a*Tauf_a*BodyForce;      % The second term accounts for body force
 
 CP='M1'; CheckPoints;                             % Check the construction of the moments (especially rho_a)
 

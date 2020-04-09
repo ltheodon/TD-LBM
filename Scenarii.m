@@ -13,7 +13,7 @@
 %    'UserDefined1'     : scenario defined by the user
 %    'Debugging'        : scenario to check if code is correct
 
-Scenario = 'Benard2';    % WARNING : if 'UserDefined', please change below in this file', 'Postprocessing.m' and 'PlotResults.m'
+Scenario = 'HeatConduction';    % WARNING : if 'UserDefined', please change below in this file', 'Postprocessing.m' and 'PlotResults.m'
 
 %% Definition of the system size (rectangle)
 
